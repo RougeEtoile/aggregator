@@ -46,13 +46,13 @@ function BottomAppBar(props) {
       <Paper square className={classes.paper}>
         <Typography className={classes.text} variant="h5" gutterBottom>
             Posts
-            <Button onClick={props.destroy}>DELETE ROOM</Button>
+            <Button >Import from Social</Button>
         </Typography>
         <List className={classes.list}>
-          {props.messages.map( msg => (
+          {props.posts.map( post => (
             <Fragment >
               <ListItem button>
-                <ListItemText primary={msg.split(";")[0]} secondary={msg.split(";")[1]} />
+                <ListItemText primary={post.source} secondary={post.text} />
               </ListItem>
             </Fragment>
           ))}
@@ -67,18 +67,10 @@ function BottomAppBar(props) {
           label="Name"
           className={classes.textField}
           onChange={props.changeName}
-          value={props.name}
+          value={props.username}
           margin="normal"
         />
-          <TextField
-        id="standard-name"
-          label="Name"
-          className={classes.textField}
-          onChange={props.changeInput}
-          value={props.input}
-          margin="normal"
-        />
-            <IconButton color="inherit" onClick={props.submit}>
+            <IconButton color="inherit">
               <AddIcon />
             </IconButton>
           </div>

@@ -9,10 +9,15 @@ class App extends Component {
     super();
     this.state = { 
       posts: [],
-      username: 'Default',
+      username: 'default',
       input: '',
     }
   }
+
+  changeName = e =>{
+    this.setState({name: e.target.value})
+  }
+
   componentDidMount() {
     fetch(api)
       .then(response => response.json())
@@ -27,7 +32,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        hi
+        <AppBar
+        posts={this.state.posts} 
+        changeName={this.changeName}
+        username={this.state.username}
+        />
       </div>
     );
   }
