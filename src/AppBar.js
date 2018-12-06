@@ -46,7 +46,7 @@ function BottomAppBar(props) {
       <Paper square className={classes.paper}>
         <Typography className={classes.text} variant="h5" gutterBottom>
             Posts
-            <Button >Import from Social</Button>
+            <Button onClick={props.import}>Import from Social</Button>
         </Typography>
         <List className={classes.list}>
           {props.posts.map( post => (
@@ -64,13 +64,22 @@ function BottomAppBar(props) {
           <div>
           <TextField
         id="standard-name"
-          label="Name"
+          label="Username"
           className={classes.textField}
           onChange={props.changeName}
           value={props.username}
           margin="normal"
         />
-            <IconButton color="inherit">
+
+        <TextField
+        id="standard-name"
+          label="Input"
+          className={classes.textField}
+          onChange={props.changeInput}
+          value={props.input}
+          margin="normal"
+        />
+            <IconButton color="inherit" onClick={props.import}>
               <AddIcon />
             </IconButton>
           </div>

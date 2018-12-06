@@ -15,8 +15,32 @@ class App extends Component {
   }
 
   changeName = e =>{
-    this.setState({name: e.target.value})
+    this.setState({username: e.target.value})
   }
+  changeInput = e =>{
+    this.setState({input: e.target.value})
+  }
+
+  search = e =>{
+    fetch('http://localhost:8000/posts/search/'+this.state.user+'/'+this.state.input+'/')
+    .then(response => response.json())
+    .then(data =>
+        {
+          console.log(data)
+          this.setState({ posts: data })
+        });
+  }
+  import() {
+    fetch(api)
+      .then(response => response.json())
+      .then(data =>
+        {
+          console.log(data)
+          this.setState({ posts: data })
+        });
+  }
+
+
 
   componentDidMount() {
     fetch(api)
@@ -35,7 +59,11 @@ class App extends Component {
         <AppBar
         posts={this.state.posts} 
         changeName={this.changeName}
+        input={this.state.input}
+        changeInput={this.changeInput}
         username={this.state.username}
+        search={this.search}
+        import={this.import}
         />
       </div>
     );
