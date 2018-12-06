@@ -1,25 +1,33 @@
 import React, { Component } from 'react';
+import AppBar from './AppBar'
 import logo from './logo.svg';
 import './App.css';
 
+const api = 'http://localhost:8000/posts/Default/posts/'
 class App extends Component {
+  constructor(){
+    super();
+    this.state = { 
+      posts: [],
+      username: 'Default',
+      input: '',
+    }
+  }
+  componentDidMount() {
+    fetch(api)
+      .then(response => response.json())
+      .then(data =>
+        {
+          console.log(data)
+          this.setState({ posts: data })
+        });
+  }
+
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        hi
       </div>
     );
   }
