@@ -79,7 +79,7 @@ function BottomAppBar(props) {
           value={props.input}
           margin="normal"
         />
-            <IconButton color="inherit" onClick={props.import}>
+            <IconButton color="inherit" onClick={props.search}>
               <AddIcon />
             </IconButton>
           </div>

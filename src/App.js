@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   search = e =>{
-    fetch('http://localhost:8000/posts/search/'+this.state.user+'/'+this.state.input+'/')
+    fetch('http://localhost:8000/posts/search/'+this.state.username+'/'+this.state.input+'/')
     .then(response => response.json())
     .then(data =>
         {
@@ -30,7 +30,7 @@ class App extends Component {
           this.setState({ posts: data })
         });
   }
-  import() {
+  import = () => {
     fetch(api)
       .then(response => response.json())
       .then(data =>
